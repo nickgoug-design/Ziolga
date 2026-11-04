@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ζιώλγα Πελαγία | Λογιστικό & Φοροτεχνικό Γραφείο Αλεξανδρούπολη</title>
+<meta name="description" content="Λογιστικό και φοροτεχνικό γραφείο στην Αλεξανδρούπολη. Φορολογικές δηλώσεις, τήρηση βιβλίων, ΦΠΑ, έναρξη και διακοπή επιχείρησης. Διον. Σολωμού 10. Τηλ. 25510 28777.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AccountingService",
+  "name": "Ζιώλγα Πελαγία - Λογιστικό Γραφείο",
+  "telephone": ["+302551028777", "+306977214212"],
+  "email": "pziolga@yahoo.gr",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Διονυσίου Σολωμού 10",
+    "addressLocality": "Αλεξανδρούπολη",
+    "postalCode": "68100",
+    "addressRegion": "Έβρου",
+    "addressCountry": "GR"
+  }
+}
+</script>
+<style>
+:root{
+  --navy:#16324f; --navy-d:#0e2238; --gold:#b8893a; --bg:#f7f5f0; --card:#fff;
+  --text:#1f2a37; --muted:#5b6672; --line:#e3ded3;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.65}
+h1,h2,h3{font-family:'Noto Serif',Georgia,serif;color:var(--navy);line-height:1.25}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+header{position:sticky;top:0;z-index:10;background:rgba(247,245,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:'Noto Serif',serif;font-weight:700;color:var(--navy);text-decoration:none;font-size:1.05rem}
+.brand span{color:var(--gold)}
+nav a{text-decoration:none;font-size:.92rem;font-weight:500;margin-left:22px;color:var(--muted)}
+nav a:hover{color:var(--navy)}
+@media(max-width:640px){nav a.hide-m{display:none}}
+
+.hero{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff;padding:84px 0 92px}
+.hero h1{color:#fff;font-size:clamp(1.9rem,5vw,3rem);max-width:720px}
+.hero p{max-width:600px;margin-top:18px;color:#d5dde6;font-size:1.08rem}
+.tag{display:inline-block;color:var(--gold);font-weight:600;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase;margin-bottom:14px}
+.btns{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.97rem}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#a37a31}
+.btn-line{border:1.5px solid rgba(255,255,255,.55);color:#fff}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+
+section{padding:72px 0}
+section h2{font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:10px}
+.lead{color:var(--muted);max-width:620px;margin-bottom:36px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}
+.card h3{font-size:1.08rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem}
+.ico{width:42px;height:42px;border-radius:10px;background:#f1e8d6;color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.ico svg{width:22px;height:22px}
+
+.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+.about p{color:var(--muted);margin-top:12px}
+.points{list-style:none;display:grid;gap:12px}
+.points li{display:flex;gap:12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-weight:500}
+.points li::before{content:"✓";color:var(--gold);font-weight:700}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:760px){.contact{grid-template-columns:1fr}}
+.info{display:grid;gap:18px}
+.row small{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.row a,.row span{font-size:1.08rem;font-weight:500;text-decoration:none;color:var(--navy)}
+.row a:hover{text-decoration:underline}
+.mapbox{background:var(--navy);color:#fff;border-radius:12px;padding:30px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.mapbox h3{color:#fff}
+.mapbox p{color:#d5dde6}
+
+footer{background:var(--navy-d);color:#aab6c3;padding:28px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Ζιώλγα <span>Πελαγία</span></a>
+    <nav>
+      <a class="hide-m" href="#ypiresies">Υπηρεσίες</a>
+      <a class="hide-m" href="#grafeio">Το γραφείο</a>
+      <a href="#epikoinonia">Επικοινωνία</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="tag">Λογιστικό & Φοροτεχνικό Γραφείο · Αλεξανδρούπολη</span>
+      <h1>Λογιστική υποστήριξη με συνέπεια και σαφήνεια.</h1>
+      <p>Αναλαμβάνουμε τις λογιστικές και φορολογικές σας υποχρεώσεις, ώστε εσείς να ασχολείστε με τη δουλειά σας. Για ιδιώτες, επαγγελματίες και επιχειρήσεις του Έβρου.</p>
+      <div class="btns">
+        <a class="btn btn-gold" href="tel:+302551028777">Καλέστε στο 25510 28777</a>
+        <a class="btn btn-line" href="#epikoinonia">Στοιχεία επικοινωνίας</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="ypiresies">
+    <div class="wrap">
+      <h2>Υπηρεσίες</h2>
+      <p class="lead">Ό,τι χρειάζεται μια επιχείρηση ή ένας ιδιώτης για να είναι εντάξει με τις φορολογικές υποχρεώσεις του.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
+          <h3>Φορολογικές δηλώσεις</h3>
+          <p>Εισοδήματος (Ε1), ακινήτων (Ε2, Ε9) και νομικών προσώπων, με έλεγχο των στοιχείων πριν την υποβολή.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM4 19a2 2 0 0 1 2-2h12M9 8h6"/></svg></div>
+          <h3>Τήρηση λογιστικών βιβλίων</h3>
+          <p>Καταχώρηση παραστατικών, βιβλία Β΄ και Γ΄ κατηγορίας και παρακολούθηση της πορείας της επιχείρησης.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
+          <h3>ΦΠΑ και περιοδικές δηλώσεις</h3>
+          <p>Υποβολή δηλώσεων ΦΠΑ και τήρηση των προθεσμιών, ώστε να αποφεύγονται πρόστιμα και προσαυξήσεις.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Έναρξη και διακοπή επιχείρησης</h3>
+          <p>Καθοδήγηση για την επιλογή μορφής και καθεστώτος, και διεκπεραίωση της έναρξης, μεταβολής ή διακοπής εργασιών.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6M17 11a3 3 0 1 0 0-6M21.5 20c0-2.6-1.7-4.6-4-5.4"/></svg></div>
+          <h3>Μισθοδοσία</h3>
+          <p>Εκκαθάριση μισθοδοσίας, δηλώσεις ΑΠΔ και ΕΡΓΑΝΗ και ενημέρωση για τις ασφαλιστικές εισφορές.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Φοροτεχνική συμβουλευτική</h3>
+          <p>Απαντήσεις σε ερωτήματα για φόρους, επιδόματα και ρυθμίσεις οφειλών, πριν πάρετε μια οικονομική απόφαση.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="grafeio" class="alt">
+    <div class="wrap about">
+      <div>
+        <h2>Το γραφείο</h2>
+        <p>Το λογιστικό γραφείο της Πελαγίας Ζιώλγα εδρεύει στο κέντρο της Αλεξανδρούπολης, επί της οδού Διονυσίου Σολωμού, και εξυπηρετεί πελάτες από όλη την περιοχή του Έβρου.</p>
+        <p>Η προσέγγισή μας είναι απλή: καθαρή επικοινωνία, σωστή οργάνωση και σεβασμός στις προθεσμίες σας.</p>
+      </div>
+      <ul class="points">
+        <li>Προσωπική εξυπηρέτηση</li>
+        <li>Τήρηση προθεσμιών και υποχρεώσεων</li>
+        <li>Σαφής ενημέρωση για κάθε υποχρέωση</li>
+        <li>Εξυπηρέτηση ιδιωτών και επιχειρήσεων</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="epikoinonia">
+    <div class="wrap">
+      <h2>Επικοινωνία</h2>
+      <p class="lead">Καλέστε μας ή στείλτε email για να κλείσετε ραντεβού.</p>
+      <div class="contact">
+        <div class="card info">
+          <div class="row"><small>Διεύθυνση</small><span>Διονυσίου Σολωμού 10, 68100 Αλεξανδρούπολη</span></div>
+          <div class="row"><small>Τηλέφωνο γραφείου</small><a href="tel:+302551028777">25510 28777</a></div>
+          <div class="row"><small>Κινητό</small><a href="tel:+306977214212">697 721 4212</a></div>
+          <div class="row"><small>Email</small><a href="mailto:pziolga@yahoo.gr">pziolga@yahoo.gr</a></div>
+        </div>
+        <div class="mapbox">
+          <h3>Βρείτε μας στον χάρτη</h3>
+          <p>Διονυσίου Σολωμού 10, Αλεξανδρούπολη</p>
+          <div><a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=%CE%94%CE%B9%CE%BF%CE%BD%CF%85%CF%83%CE%AF%CE%BF%CF%85+%CE%A3%CE%BF%CE%BB%CF%89%CE%BC%CE%BF%CF%8D+10+%CE%91%CE%BB%CE%B5%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%8D%CF%80%CE%BF%CE%BB%CE%B7">Άνοιγμα στο Google Maps</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Ζιώλγα Πελαγία · Λογιστικό Γραφείο</span>
+    <span>Αλεξανδρούπολη, Έβρου</span>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
