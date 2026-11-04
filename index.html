@@ -64,7 +64,8 @@ nav a:hover{color:var(--navy)}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(14,34,56,.88) 0%,rgba(14,34,56,.55) 55%,rgba(14,34,56,.2) 100%)}
 .hero .wrap{position:relative;z-index:2}
 @media(max-width:700px){.hero::after{background:rgba(14,34,56,.72)}}
-@media(prefers-reduced-motion:reduce){.hero video{display:none}}
+.vbtn{position:absolute;right:16px;bottom:16px;z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:rgba(14,34,56,.55);color:#fff;font-size:.8rem;cursor:pointer;line-height:1}
+.vbtn:hover{background:rgba(14,34,56,.85)}
 .hero h1{color:#fff;font-size:clamp(1.9rem,5vw,3rem);max-width:720px}
 .hero p{max-width:600px;margin-top:18px;color:#d5dde6;font-size:1.08rem}
 .tag{display:inline-block;color:var(--gold);font-weight:600;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase;margin-bottom:14px}
@@ -158,6 +159,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 <main id="top">
   <div class="hero">
     <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true"><source src="assets/hero.mp4" type="video/mp4"></video>
+    <button class="vbtn" id="vbtn" type="button" aria-label="Pause video">❚❚</button>
     <div class="wrap">
       <span class="tag" data-i18n="tag">Λογιστικό & Φοροτεχνικό Γραφείο · Αλεξανδρούπολη</span>
       <h1 data-i18n="h1">Λογιστική υποστήριξη με συνέπεια και σαφήνεια.</h1>
@@ -291,6 +293,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   nodes.forEach(function(n){ D.el[n.getAttribute('data-i18n')] = n.textContent; });
   D.el.meta = document.getElementById('metaDesc').getAttribute('content');
   D.el.subj = 'Αίτημα ραντεβού';
+  D.el.vp='Παύση βίντεο'; D.el.vl='Αναπαραγωγή βίντεο';
   D.el.m_name = 'Ονοματεπώνυμο'; D.el.m_phone = 'Τηλέφωνο'; D.el.m_service = 'Υπηρεσία';
 
   D.en = {
@@ -326,6 +329,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     l_addr:'Address', l_tel:'Office phone', l_mob:'Mobile',
     map_h:'Find us on the map', map_btn:'Open in Google Maps',
     foot_a:'Accounting Office', foot_b:'Alexandroupoli, Evros',
+    vp:'Pause video', vl:'Play video',
     subj:'Appointment request', m_name:'Name', m_phone:'Phone', m_service:'Service'
   };
 
@@ -362,6 +366,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     l_addr:'Adres', l_tel:'Büro telefonu', l_mob:'Cep telefonu',
     map_h:'Haritada bizi bulun', map_btn:'Google Maps\'te aç',
     foot_a:'Muhasebe Bürosu', foot_b:'Dedeağaç (Alexandroupoli), Evros',
+    vp:'Videoyu duraklat', vl:'Videoyu oynat',
     subj:'Randevu talebi', m_name:'Ad', m_phone:'Telefon', m_service:'Hizmet'
   };
 
@@ -398,6 +403,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     l_addr:'Адрес', l_tel:'Телефон на кантората', l_mob:'Мобилен',
     map_h:'Намерете ни на картата', map_btn:'Отвори в Google Maps',
     foot_a:'Счетоводна кантора', foot_b:'Александруполис, Еврос',
+    vp:'Пауза на видеото', vl:'Пусни видеото',
     subj:'Заявка за среща', m_name:'Име', m_phone:'Телефон', m_service:'Услуга'
   };
 
@@ -434,9 +440,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     l_addr:'Adresă', l_tel:'Telefon birou', l_mob:'Mobil',
     map_h:'Găsiți-ne pe hartă', map_btn:'Deschide în Google Maps',
     foot_a:'Birou de contabilitate', foot_b:'Alexandroupoli, Evros',
+    vp:'Pauză video', vl:'Redă video',
     subj:'Cerere de programare', m_name:'Nume', m_phone:'Telefon', m_service:'Serviciu'
   };
 
+  var vid = document.querySelector('.hero video'), vb = document.getElementById('vbtn');
+  function updBtn(){
+    var playing = !vid.paused;
+    vb.textContent = playing ? '\u275A\u275A' : '\u25B6';
+    vb.setAttribute('aria-label', playing ? D[cur].vp : D[cur].vl);
+  }
+  vb.addEventListener('click', function(){ if(vid.paused){ vid.play(); } else { vid.pause(); } });
+  vid.addEventListener('play', updBtn); vid.addEventListener('pause', updBtn);
   var HTMLLANG = {el:'el', en:'en', tr:'tr', bg:'bg', ro:'ro'};
   var cur = 'el';
 
@@ -449,6 +464,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
     });
     document.getElementById('metaDesc').setAttribute('content', D[l].meta);
     document.documentElement.lang = HTMLLANG[l];
+    updBtn();
     document.title = D[l].title;
     document.querySelectorAll('#lang button').forEach(function(b){
       b.setAttribute('aria-pressed', b.getAttribute('data-l') === l ? 'true' : 'false');
