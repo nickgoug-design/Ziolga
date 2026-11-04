@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ζιώλγα Πελαγία | Λογιστικό & Φοροτεχνικό Γραφείο Αλεξανδρούπολη</title>
-<meta name="description" content="Λογιστικό και φοροτεχνικό γραφείο στην Αλεξανδρούπολη. Φορολογικές δηλώσεις, τήρηση βιβλίων, ΦΠΑ, έναρξη και διακοπή επιχείρησης. Διον. Σολωμού 10. Τηλ. 25510 28777.">
+<title data-i18n="title">Ζιώλγα Πελαγία | Λογιστικό & Φοροτεχνικό Γραφείο Αλεξανδρούπολη</title>
+<meta id="metaDesc" name="description" content="Λογιστικό και φοροτεχνικό γραφείο στην Αλεξανδρούπολη. Φορολογικές δηλώσεις, τήρηση βιβλίων, ΦΠΑ, μισθοδοσία, έναρξη και διακοπή επιχείρησης. Διον. Σολωμού 10. Τηλ. 25510 28777.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap&subset=greek,cyrillic,latin-ext" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,26 +31,40 @@
   --text:#1f2a37; --muted:#5b6672; --line:#e3ded3;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.65}
 h1,h2,h3{font-family:'Noto Serif',Georgia,serif;color:var(--navy);line-height:1.25}
 a{color:inherit}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 
-header{position:sticky;top:0;z-index:10;background:rgba(247,245,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{font-family:'Noto Serif',serif;font-weight:700;color:var(--navy);text-decoration:none;font-size:1.05rem}
+.topbar{background:var(--navy-d);color:#cdd7e2;font-size:.85rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:7px;padding-bottom:7px}
+.topbar a{text-decoration:none;margin-right:16px}
+.topbar a:hover{color:#fff}
+@media(max-width:640px){.topbar .addr{display:none}}
+
+header{position:sticky;top:0;z-index:10;background:rgba(247,245,240,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px}
+.brand{font-family:'Noto Serif',serif;font-weight:700;color:var(--navy);text-decoration:none;font-size:1.05rem;white-space:nowrap}
 .brand span{color:var(--gold)}
-nav a{text-decoration:none;font-size:.92rem;font-weight:500;margin-left:22px;color:var(--muted)}
+nav{display:flex;align-items:center}
+nav a{text-decoration:none;font-size:.92rem;font-weight:500;margin-left:20px;color:var(--muted)}
 nav a:hover{color:var(--navy)}
-@media(max-width:640px){nav a.hide-m{display:none}}
+@media(max-width:820px){nav a.hide-m{display:none}}
+.lang{display:flex;gap:2px;margin-left:18px}
+.lang button{font:inherit;font-size:.78rem;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--muted);padding:5px 8px;cursor:pointer}
+.lang button:first-child{border-radius:6px 0 0 6px}
+.lang button:last-child{border-radius:0 6px 6px 0}
+.lang button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+@media(max-width:560px){nav>a{display:none}.lang{margin-left:0}}
+@media(max-width:480px){.lang button{padding:5px 6px;font-size:.72rem}.brand{font-size:.95rem}}
 
 .hero{background:linear-gradient(135deg,var(--navy-d),var(--navy));color:#fff;padding:84px 0 92px}
 .hero h1{color:#fff;font-size:clamp(1.9rem,5vw,3rem);max-width:720px}
 .hero p{max-width:600px;margin-top:18px;color:#d5dde6;font-size:1.08rem}
 .tag{display:inline-block;color:var(--gold);font-weight:600;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase;margin-bottom:14px}
 .btns{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.97rem}
+.btn{display:inline-block;padding:13px 24px;border-radius:8px;font-weight:600;text-decoration:none;font-size:.97rem;border:0;cursor:pointer;font-family:inherit}
 .btn-gold{background:var(--gold);color:#fff}
 .btn-gold:hover{background:#a37a31}
 .btn-line{border:1.5px solid rgba(255,255,255,.55);color:#fff}
@@ -62,27 +76,43 @@ section h2{font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:10px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}
-.card h3{font-size:1.08rem;margin-bottom:8px}
+.card h3{font-size:1.1rem;margin-bottom:12px}
 .card p{color:var(--muted);font-size:.95rem}
-.ico{width:42px;height:42px;border-radius:10px;background:#f1e8d6;color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-.ico svg{width:22px;height:22px}
+.card ul{list-style:none;display:grid;gap:9px}
+.card li{display:flex;gap:10px;color:var(--muted);font-size:.95rem}
+.card li::before{content:"✓";color:var(--gold);font-weight:700}
+.card.top{border-top:3px solid var(--gold)}
 
 .alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-@media(max-width:760px){.about{grid-template-columns:1fr}}
-.about p{color:var(--muted);margin-top:12px}
-.points{list-style:none;display:grid;gap:12px}
-.points li{display:flex;gap:12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-weight:500}
-.points li::before{content:"✓";color:var(--gold);font-weight:700}
+.vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.val h3{font-size:1.02rem;margin-bottom:6px}
+.val p{color:var(--muted);font-size:.93rem}
+.val .n{font-family:'Noto Serif',serif;color:var(--gold);font-weight:700;font-size:1.4rem;display:block;margin-bottom:4px}
 
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-@media(max-width:760px){.contact{grid-template-columns:1fr}}
-.info{display:grid;gap:18px}
-.row small{display:block;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
-.row a,.row span{font-size:1.08rem;font-weight:500;text-decoration:none;color:var(--navy)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;counter-reset:s}
+.step{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px}
+.step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:600;margin-bottom:12px}
+.step h3{font-size:1.05rem;margin-bottom:6px}
+.step p{color:var(--muted);font-size:.94rem}
+
+details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;color:var(--navy)}
+details p{margin-top:10px;color:var(--muted)}
+
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}
+@media(max-width:820px){.contact{grid-template-columns:1fr}}
+form{display:grid;gap:14px}
+label{display:grid;gap:5px;font-size:.88rem;font-weight:500;color:var(--navy)}
+input,select,textarea{font:inherit;font-size:.97rem;padding:11px 13px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+textarea{min-height:110px;resize:vertical}
+.fnote{font-size:.82rem;color:var(--muted)}
+.info{display:grid;gap:18px;align-content:start}
+.row small{display:block;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+.row a,.row span{font-size:1.05rem;font-weight:500;text-decoration:none;color:var(--navy)}
 .row a:hover{text-decoration:underline}
-.mapbox{background:var(--navy);color:#fff;border-radius:12px;padding:30px;display:flex;flex-direction:column;justify-content:center;gap:14px}
-.mapbox h3{color:#fff}
+.mapbox{background:var(--navy);color:#fff;border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.mapbox h3{color:#fff;font-size:1.05rem}
 .mapbox p{color:#d5dde6}
 
 footer{background:var(--navy-d);color:#aab6c3;padding:28px 0;font-size:.88rem}
@@ -91,13 +121,31 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap">
+    <span>
+      <a href="tel:+302551028777">25510 28777</a>
+      <a href="mailto:pziolga@yahoo.gr">pziolga@yahoo.gr</a>
+    </span>
+    <span class="addr" data-i18n="addr_short">Διονυσίου Σολωμού 10, Αλεξανδρούπολη</span>
+  </div>
+</div>
+
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">Ζιώλγα <span>Πελαγία</span></a>
+    <a class="brand" href="#top" data-nolang>Ζιώλγα <span>Πελαγία</span></a>
     <nav>
-      <a class="hide-m" href="#ypiresies">Υπηρεσίες</a>
-      <a class="hide-m" href="#grafeio">Το γραφείο</a>
-      <a href="#epikoinonia">Επικοινωνία</a>
+      <a class="hide-m" href="#ypiresies" data-i18n="nav_services">Υπηρεσίες</a>
+      <a class="hide-m" href="#pos" data-i18n="nav_how">Πώς δουλεύουμε</a>
+      <a class="hide-m" href="#faq" data-i18n="nav_faq">Συχνές ερωτήσεις</a>
+      <a href="#epikoinonia" data-i18n="nav_contact">Επικοινωνία</a>
+      <div class="lang" id="lang" role="group" aria-label="Language">
+        <button type="button" data-l="el">EL</button>
+        <button type="button" data-l="en">EN</button>
+        <button type="button" data-l="tr">TR</button>
+        <button type="button" data-l="bg">BG</button>
+        <button type="button" data-l="ro">RO</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -105,86 +153,116 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 <main id="top">
   <div class="hero">
     <div class="wrap">
-      <span class="tag">Λογιστικό & Φοροτεχνικό Γραφείο · Αλεξανδρούπολη</span>
-      <h1>Λογιστική υποστήριξη με συνέπεια και σαφήνεια.</h1>
-      <p>Αναλαμβάνουμε τις λογιστικές και φορολογικές σας υποχρεώσεις, ώστε εσείς να ασχολείστε με τη δουλειά σας. Για ιδιώτες, επαγγελματίες και επιχειρήσεις του Έβρου.</p>
+      <span class="tag" data-i18n="tag">Λογιστικό & Φοροτεχνικό Γραφείο · Αλεξανδρούπολη</span>
+      <h1 data-i18n="h1">Λογιστική υποστήριξη με συνέπεια και σαφήνεια.</h1>
+      <p data-i18n="lead">Αναλαμβάνουμε τις λογιστικές και φορολογικές σας υποχρεώσεις, ώστε εσείς να ασχολείστε με τη δουλειά σας. Για ιδιώτες, επαγγελματίες και επιχειρήσεις του Έβρου.</p>
       <div class="btns">
-        <a class="btn btn-gold" href="tel:+302551028777">Καλέστε στο 25510 28777</a>
-        <a class="btn btn-line" href="#epikoinonia">Στοιχεία επικοινωνίας</a>
+        <a class="btn btn-gold" href="tel:+302551028777" data-i18n="cta_call">Καλέστε στο 25510 28777</a>
+        <a class="btn btn-line" href="#epikoinonia" data-i18n="cta_book">Κλείστε ραντεβού</a>
       </div>
     </div>
   </div>
 
   <section id="ypiresies">
     <div class="wrap">
-      <h2>Υπηρεσίες</h2>
-      <p class="lead">Ό,τι χρειάζεται μια επιχείρηση ή ένας ιδιώτης για να είναι εντάξει με τις φορολογικές υποχρεώσεις του.</p>
+      <h2 data-i18n="services_h">Υπηρεσίες</h2>
+      <p class="lead" data-i18n="services_lead">Ό,τι χρειάζεται μια επιχείρηση ή ένας ιδιώτης για να είναι εντάξει με τις φορολογικές υποχρεώσεις του.</p>
       <div class="grid">
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
-          <h3>Φορολογικές δηλώσεις</h3>
-          <p>Εισοδήματος (Ε1), ακινήτων (Ε2, Ε9) και νομικών προσώπων, με έλεγχο των στοιχείων πριν την υποβολή.</p>
+        <div class="card top">
+          <h3 data-i18n="g1_h">Ιδιώτες</h3>
+          <ul>
+            <li data-i18n="g1_1">Φορολογικές δηλώσεις (Ε1, Ε2, Ε9)</li>
+            <li data-i18n="g1_2">Ρυθμίσεις οφειλών</li>
+            <li data-i18n="g1_3">Ενημέρωση για φορολογικές υποχρεώσεις</li>
+          </ul>
         </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM4 19a2 2 0 0 1 2-2h12M9 8h6"/></svg></div>
-          <h3>Τήρηση λογιστικών βιβλίων</h3>
-          <p>Καταχώρηση παραστατικών, βιβλία Β΄ και Γ΄ κατηγορίας και παρακολούθηση της πορείας της επιχείρησης.</p>
+        <div class="card top">
+          <h3 data-i18n="g2_h">Επαγγελματίες & ατομικές επιχειρήσεις</h3>
+          <ul>
+            <li data-i18n="g2_1">Έναρξη, μεταβολή και διακοπή εργασιών</li>
+            <li data-i18n="g2_2">Τήρηση βιβλίων Β΄ κατηγορίας</li>
+            <li data-i18n="g2_3">Δηλώσεις ΦΠΑ και προθεσμίες</li>
+          </ul>
         </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></div>
-          <h3>ΦΠΑ και περιοδικές δηλώσεις</h3>
-          <p>Υποβολή δηλώσεων ΦΠΑ και τήρηση των προθεσμιών, ώστε να αποφεύγονται πρόστιμα και προσαυξήσεις.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="9"/></svg></div>
-          <h3>Έναρξη και διακοπή επιχείρησης</h3>
-          <p>Καθοδήγηση για την επιλογή μορφής και καθεστώτος, και διεκπεραίωση της έναρξης, μεταβολής ή διακοπής εργασιών.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6M17 11a3 3 0 1 0 0-6M21.5 20c0-2.6-1.7-4.6-4-5.4"/></svg></div>
-          <h3>Μισθοδοσία</h3>
-          <p>Εκκαθάριση μισθοδοσίας, δηλώσεις ΑΠΔ και ΕΡΓΑΝΗ και ενημέρωση για τις ασφαλιστικές εισφορές.</p>
-        </div>
-        <div class="card">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h3>Φοροτεχνική συμβουλευτική</h3>
-          <p>Απαντήσεις σε ερωτήματα για φόρους, επιδόματα και ρυθμίσεις οφειλών, πριν πάρετε μια οικονομική απόφαση.</p>
+        <div class="card top">
+          <h3 data-i18n="g3_h">Εταιρείες</h3>
+          <ul>
+            <li data-i18n="g3_1">Βιβλία Γ΄ κατηγορίας και ισολογισμοί</li>
+            <li data-i18n="g3_2">Μισθοδοσία (ΑΠΔ, ΕΡΓΑΝΗ)</li>
+            <li data-i18n="g3_3">Σύσταση εταιρειών και μεταβολές</li>
+            <li data-i18n="g3_4">Φοροτεχνική συμβουλευτική</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="grafeio" class="alt">
-    <div class="wrap about">
-      <div>
-        <h2>Το γραφείο</h2>
-        <p>Το λογιστικό γραφείο της Πελαγίας Ζιώλγα εδρεύει στο κέντρο της Αλεξανδρούπολης, επί της οδού Διονυσίου Σολωμού, και εξυπηρετεί πελάτες από όλη την περιοχή του Έβρου.</p>
-        <p>Η προσέγγισή μας είναι απλή: καθαρή επικοινωνία, σωστή οργάνωση και σεβασμός στις προθεσμίες σας.</p>
+  <section class="alt" id="grafeio">
+    <div class="wrap">
+      <h2 data-i18n="vals_h">Γιατί να μας εμπιστευτείτε</h2>
+      <p class="lead" data-i18n="vals_lead">Τέσσερις αρχές που ακολουθούμε σε κάθε συνεργασία.</p>
+      <div class="vals">
+        <div class="val"><span class="n">01</span><h3 data-i18n="v1_h">Συνέπεια</h3><p data-i18n="v1_p">Τηρούμε τις προθεσμίες, ώστε να μην έχετε πρόστιμα.</p></div>
+        <div class="val"><span class="n">02</span><h3 data-i18n="v2_h">Σαφήνεια</h3><p data-i18n="v2_p">Σας εξηγούμε απλά κάθε υποχρέωση.</p></div>
+        <div class="val"><span class="n">03</span><h3 data-i18n="v3_h">Εχεμύθεια</h3><p data-i18n="v3_p">Τα στοιχεία σας παραμένουν εμπιστευτικά.</p></div>
+        <div class="val"><span class="n">04</span><h3 data-i18n="v4_h">Προσωπική εξυπηρέτηση</h3><p data-i18n="v4_p">Μιλάτε απευθείας με τον λογιστή σας.</p></div>
       </div>
-      <ul class="points">
-        <li>Προσωπική εξυπηρέτηση</li>
-        <li>Τήρηση προθεσμιών και υποχρεώσεων</li>
-        <li>Σαφής ενημέρωση για κάθε υποχρέωση</li>
-        <li>Εξυπηρέτηση ιδιωτών και επιχειρήσεων</li>
-      </ul>
+    </div>
+  </section>
+
+  <section id="pos">
+    <div class="wrap">
+      <h2 data-i18n="how_h">Πώς δουλεύουμε</h2>
+      <p class="lead" data-i18n="how_lead">Απλή διαδικασία, χωρίς εκπλήξεις.</p>
+      <div class="steps">
+        <div class="step"><h3 data-i18n="s1_h">Επικοινωνείτε μαζί μας</h3><p data-i18n="s1_p">Καλείτε ή στέλνετε μήνυμα και κλείνουμε ραντεβού.</p></div>
+        <div class="step"><h3 data-i18n="s2_h">Μας δίνετε τα στοιχεία σας</h3><p data-i18n="s2_p">Σας λέμε ακριβώς ποια παραστατικά και έγγραφα χρειάζονται.</p></div>
+        <div class="step"><h3 data-i18n="s3_h">Αναλαμβάνουμε εμείς</h3><p data-i18n="s3_p">Υποβάλλουμε ό,τι χρειάζεται και σας ενημερώνουμε για τα επόμενα βήματα.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="faq">
+    <div class="wrap">
+      <h2 data-i18n="faq_h">Συχνές ερωτήσεις</h2>
+      <p class="lead" data-i18n="faq_lead">Σύντομες απαντήσεις σε όσα ρωτούν συχνότερα.</p>
+      <details><summary data-i18n="q1">Τι χρειάζεται να φέρω στο πρώτο ραντεβού;</summary><p data-i18n="a1">Τον ΑΦΜ σας και τα έγγραφα που αφορούν το θέμα σας, π.χ. προηγούμενες δηλώσεις ή παραστατικά. Αν δεν είστε σίγουροι, ρωτήστε μας πριν.</p></details>
+      <details><summary data-i18n="q2">Πώς κλείνω ραντεβού;</summary><p data-i18n="a2">Τηλεφωνικά, με email ή από τη φόρμα επικοινωνίας παρακάτω.</p></details>
+      <details><summary data-i18n="q3">Τι γίνεται με τις προθεσμίες;</summary><p data-i18n="a3">Παρακολουθούμε τις προθεσμίες των υποχρεώσεών σας και σας ενημερώνουμε εγκαίρως.</p></details>
     </div>
   </section>
 
   <section id="epikoinonia">
     <div class="wrap">
-      <h2>Επικοινωνία</h2>
-      <p class="lead">Καλέστε μας ή στείλτε email για να κλείσετε ραντεβού.</p>
+      <h2 data-i18n="contact_h">Επικοινωνία</h2>
+      <p class="lead" data-i18n="contact_lead">Καλέστε μας ή στείλτε μήνυμα για να κλείσουμε ραντεβού.</p>
       <div class="contact">
-        <div class="card info">
-          <div class="row"><small>Διεύθυνση</small><span>Διονυσίου Σολωμού 10, 68100 Αλεξανδρούπολη</span></div>
-          <div class="row"><small>Τηλέφωνο γραφείου</small><a href="tel:+302551028777">25510 28777</a></div>
-          <div class="row"><small>Κινητό</small><a href="tel:+306977214212">697 721 4212</a></div>
+        <form id="cform">
+          <label><span data-i18n="f_name">Ονοματεπώνυμο</span><input type="text" id="fn" required autocomplete="name"></label>
+          <label><span data-i18n="f_phone">Τηλέφωνο</span><input type="tel" id="fp" required autocomplete="tel"></label>
+          <label><span data-i18n="f_service">Υπηρεσία</span>
+            <select id="fs">
+              <option value="" data-i18n="opt0">Επιλέξτε υπηρεσία</option>
+              <option value="1" data-i18n="opt1">Ιδιώτης</option>
+              <option value="2" data-i18n="opt2">Επαγγελματίας / ατομική επιχείρηση</option>
+              <option value="3" data-i18n="opt3">Εταιρεία</option>
+              <option value="4" data-i18n="opt4">Άλλο</option>
+            </select>
+          </label>
+          <label><span data-i18n="f_msg">Μήνυμα</span><textarea id="fm"></textarea></label>
+          <button class="btn btn-gold" type="submit" data-i18n="f_send">Αποστολή μηνύματος</button>
+          <p class="fnote" data-i18n="f_note">Η αποστολή ανοίγει την εφαρμογή email σας με έτοιμο το μήνυμα.</p>
+        </form>
+        <div class="info">
+          <div class="row"><small data-i18n="l_addr">Διεύθυνση</small><span data-i18n="addr_full">Διονυσίου Σολωμού 10, 68100 Αλεξανδρούπολη</span></div>
+          <div class="row"><small data-i18n="l_tel">Τηλέφωνο γραφείου</small><a href="tel:+302551028777">25510 28777</a></div>
+          <div class="row"><small data-i18n="l_mob">Κινητό</small><a href="tel:+306977214212">697 721 4212</a></div>
           <div class="row"><small>Email</small><a href="mailto:pziolga@yahoo.gr">pziolga@yahoo.gr</a></div>
-        </div>
-        <div class="mapbox">
-          <h3>Βρείτε μας στον χάρτη</h3>
-          <p>Διονυσίου Σολωμού 10, Αλεξανδρούπολη</p>
-          <div><a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=%CE%94%CE%B9%CE%BF%CE%BD%CF%85%CF%83%CE%AF%CE%BF%CF%85+%CE%A3%CE%BF%CE%BB%CF%89%CE%BC%CE%BF%CF%8D+10+%CE%91%CE%BB%CE%B5%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%8D%CF%80%CE%BF%CE%BB%CE%B7">Άνοιγμα στο Google Maps</a></div>
+          <div class="mapbox">
+            <h3 data-i18n="map_h">Βρείτε μας στον χάρτη</h3>
+            <p data-i18n="addr_short2">Διονυσίου Σολωμού 10, Αλεξανδρούπολη</p>
+            <div><a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=%CE%94%CE%B9%CE%BF%CE%BD%CF%85%CF%83%CE%AF%CE%BF%CF%85+%CE%A3%CE%BF%CE%BB%CF%89%CE%BC%CE%BF%CF%8D+10+%CE%91%CE%BB%CE%B5%CE%BE%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CF%8D%CF%80%CE%BF%CE%BB%CE%B7" data-i18n="map_btn">Άνοιγμα στο Google Maps</a></div>
+          </div>
         </div>
       </div>
     </div>
@@ -193,10 +271,213 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Ζιώλγα Πελαγία · Λογιστικό Γραφείο</span>
-    <span>Αλεξανδρούπολη, Έβρου</span>
+    <span>© <span id="yr">2026</span> Ζιώλγα Πελαγία · <span data-i18n="foot_a">Λογιστικό Γραφείο</span></span>
+    <span data-i18n="foot_b">Αλεξανδρούπολη, Έβρου</span>
   </div>
 </footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<script>
+(function(){
+  var D = {};
+  // Greek is read from the page itself
+  var nodes = document.querySelectorAll('[data-i18n]');
+  D.el = {};
+  nodes.forEach(function(n){ D.el[n.getAttribute('data-i18n')] = n.textContent; });
+  D.el.meta = document.getElementById('metaDesc').getAttribute('content');
+  D.el.subj = 'Αίτημα ραντεβού';
+  D.el.m_name = 'Ονοματεπώνυμο'; D.el.m_phone = 'Τηλέφωνο'; D.el.m_service = 'Υπηρεσία';
+
+  D.en = {
+    title:'Ziolga Pelagia | Accounting & Tax Office in Alexandroupoli',
+    meta:'Accounting and tax office in Alexandroupoli, Greece. Tax returns, bookkeeping, VAT, payroll, starting and closing a business. Dionysiou Solomou 10. Tel. +30 25510 28777.',
+    addr_short:'Dionysiou Solomou 10, Alexandroupoli', addr_short2:'Dionysiou Solomou 10, Alexandroupoli', addr_full:'Dionysiou Solomou 10, 68100 Alexandroupoli, Greece',
+    nav_services:'Services', nav_how:'How we work', nav_faq:'FAQ', nav_contact:'Contact',
+    tag:'Accounting & Tax Office · Alexandroupoli',
+    h1:'Reliable accounting support, explained clearly.',
+    lead:'We take care of your accounting and tax obligations so you can focus on your work. For individuals, professionals and businesses in Evros.',
+    cta_call:'Call 25510 28777', cta_book:'Book an appointment',
+    services_h:'Services', services_lead:'Everything an individual or a business needs to stay in order with their tax obligations.',
+    g1_h:'Individuals', g1_1:'Tax returns (E1, E2, E9)', g1_2:'Debt settlement arrangements', g1_3:'Guidance on tax obligations',
+    g2_h:'Professionals & sole proprietors', g2_1:'Starting, changing and closing a business', g2_2:'Bookkeeping (category B)', g2_3:'VAT returns and deadlines',
+    g3_h:'Companies', g3_1:'Bookkeeping (category C) and financial statements', g3_2:'Payroll (social security and ERGANI filings)', g3_3:'Company formation and changes', g3_4:'Tax advisory',
+    vals_h:'Why trust us', vals_lead:'Four principles we follow in every engagement.',
+    v1_h:'Punctuality', v1_p:'We meet deadlines so you avoid penalties.',
+    v2_h:'Clarity', v2_p:'We explain every obligation in plain words.',
+    v3_h:'Confidentiality', v3_p:'Your data stays private.',
+    v4_h:'Personal service', v4_p:'You deal directly with your accountant.',
+    how_h:'How we work', how_lead:'A simple process, no surprises.',
+    s1_h:'Get in touch', s1_p:'Call or send a message and we will arrange an appointment.',
+    s2_h:'Share your documents', s2_p:'We tell you exactly which documents you need.',
+    s3_h:'We take it from there', s3_p:'We file what is needed and keep you informed about next steps.',
+    faq_h:'Frequently asked questions', faq_lead:'Short answers to what people ask most.',
+    q1:'What should I bring to the first appointment?', a1:'Your tax number (AFM) and the documents related to your matter, such as previous returns or invoices. If unsure, ask us beforehand.',
+    q2:'How do I book an appointment?', a2:'By phone, by email or through the contact form below.',
+    q3:'How are deadlines handled?', a3:'We keep track of the deadlines for your obligations and let you know in good time.',
+    contact_h:'Contact', contact_lead:'Call us or send a message to arrange an appointment.',
+    f_name:'Full name', f_phone:'Phone', f_service:'Service', f_msg:'Message', f_send:'Send message',
+    f_note:'Sending opens your email app with the message ready.',
+    opt0:'Select a service', opt1:'Individual', opt2:'Professional / sole proprietor', opt3:'Company', opt4:'Other',
+    l_addr:'Address', l_tel:'Office phone', l_mob:'Mobile',
+    map_h:'Find us on the map', map_btn:'Open in Google Maps',
+    foot_a:'Accounting Office', foot_b:'Alexandroupoli, Evros',
+    subj:'Appointment request', m_name:'Name', m_phone:'Phone', m_service:'Service'
+  };
+
+  D.tr = {
+    title:'Ziolga Pelagia | Dedeağaç (Alexandroupoli) Muhasebe ve Vergi Bürosu',
+    meta:'Yunanistan, Dedeağaç (Alexandroupoli) muhasebe ve vergi bürosu. Vergi beyannameleri, defter tutma, KDV, bordro, iş başlangıcı ve kapanışı. Dionysiou Solomou 10. Tel. +30 25510 28777.',
+    addr_short:'Dionysiou Solomou 10, Dedeağaç (Alexandroupoli)', addr_short2:'Dionysiou Solomou 10, Dedeağaç (Alexandroupoli)', addr_full:'Dionysiou Solomou 10, 68100 Dedeağaç (Alexandroupoli), Yunanistan',
+    nav_services:'Hizmetler', nav_how:'Nasıl çalışıyoruz', nav_faq:'Sık sorulanlar', nav_contact:'İletişim',
+    tag:'Muhasebe ve Vergi Bürosu · Dedeağaç (Alexandroupoli)',
+    h1:'Güvenilir ve anlaşılır muhasebe desteği.',
+    lead:'Muhasebe ve vergi yükümlülüklerinizi biz üstleniriz, siz işinize odaklanın. Evros bölgesindeki bireyler, serbest meslek sahipleri ve işletmeler için.',
+    cta_call:'Arayın: 25510 28777', cta_book:'Randevu alın',
+    services_h:'Hizmetler', services_lead:'Bireylerin ve işletmelerin vergi yükümlülüklerini düzenli tutması için gereken her şey.',
+    g1_h:'Bireyler', g1_1:'Vergi beyannameleri (E1, E2, E9)', g1_2:'Borç yapılandırması', g1_3:'Vergi yükümlülükleri hakkında bilgilendirme',
+    g2_h:'Serbest meslek sahipleri ve şahıs işletmeleri', g2_1:'İş başlangıcı, değişikliği ve kapanışı', g2_2:'Defter tutma (B kategorisi)', g2_3:'KDV beyannameleri ve süreler',
+    g3_h:'Şirketler', g3_1:'Defter tutma (C kategorisi) ve bilançolar', g3_2:'Bordro (sosyal güvenlik ve ERGANI bildirimleri)', g3_3:'Şirket kuruluşu ve değişiklikler', g3_4:'Vergi danışmanlığı',
+    vals_h:'Neden bize güvenmelisiniz', vals_lead:'Her çalışmada izlediğimiz dört ilke.',
+    v1_h:'Dakiklik', v1_p:'Süreleri takip ederiz, böylece cezalarla karşılaşmazsınız.',
+    v2_h:'Açıklık', v2_p:'Her yükümlülüğü sade bir dille anlatırız.',
+    v3_h:'Gizlilik', v3_p:'Bilgileriniz gizli kalır.',
+    v4_h:'Kişisel hizmet', v4_p:'Doğrudan muhasebecinizle görüşürsünüz.',
+    how_h:'Nasıl çalışıyoruz', how_lead:'Basit bir süreç, sürpriz yok.',
+    s1_h:'Bize ulaşın', s1_p:'Arayın veya mesaj gönderin, randevu ayarlayalım.',
+    s2_h:'Belgelerinizi paylaşın', s2_p:'Hangi belgelere ihtiyaç olduğunu size tam olarak söyleriz.',
+    s3_h:'Gerisini biz yaparız', s3_p:'Gerekli işlemleri yapar, sonraki adımlar hakkında sizi bilgilendiririz.',
+    faq_h:'Sık sorulan sorular', faq_lead:'En çok sorulanlara kısa yanıtlar.',
+    q1:'İlk randevuya ne getirmeliyim?', a1:'Vergi numaranızı (AFM) ve konunuzla ilgili belgeleri, örneğin önceki beyannameler veya faturalar. Emin değilseniz önceden bize sorun.',
+    q2:'Nasıl randevu alabilirim?', a2:'Telefonla, e-postayla veya aşağıdaki iletişim formu üzerinden.',
+    q3:'Süreler nasıl takip ediliyor?', a3:'Yükümlülüklerinizin sürelerini takip eder ve sizi zamanında bilgilendiririz.',
+    contact_h:'İletişim', contact_lead:'Randevu için bizi arayın veya mesaj gönderin.',
+    f_name:'Ad Soyad', f_phone:'Telefon', f_service:'Hizmet', f_msg:'Mesaj', f_send:'Mesaj gönder',
+    f_note:'Gönder düğmesi, hazır mesajla e-posta uygulamanızı açar.',
+    opt0:'Hizmet seçin', opt1:'Birey', opt2:'Serbest meslek / şahıs işletmesi', opt3:'Şirket', opt4:'Diğer',
+    l_addr:'Adres', l_tel:'Büro telefonu', l_mob:'Cep telefonu',
+    map_h:'Haritada bizi bulun', map_btn:'Google Maps\'te aç',
+    foot_a:'Muhasebe Bürosu', foot_b:'Dedeağaç (Alexandroupoli), Evros',
+    subj:'Randevu talebi', m_name:'Ad', m_phone:'Telefon', m_service:'Hizmet'
+  };
+
+  D.bg = {
+    title:'Ziolga Pelagia | Счетоводна и данъчна кантора в Александруполис',
+    meta:'Счетоводна и данъчна кантора в Александруполис, Гърция. Данъчни декларации, счетоводство, ДДС, работни заплати, започване и прекратяване на дейност. Dionysiou Solomou 10. Тел. +30 25510 28777.',
+    addr_short:'Dionysiou Solomou 10, Александруполис', addr_short2:'Dionysiou Solomou 10, Александруполис', addr_full:'Dionysiou Solomou 10, 68100 Александруполис, Гърция',
+    nav_services:'Услуги', nav_how:'Как работим', nav_faq:'Въпроси', nav_contact:'Контакти',
+    tag:'Счетоводна и данъчна кантора · Александруполис',
+    h1:'Надеждна счетоводна поддръжка, обяснена ясно.',
+    lead:'Поемаме вашите счетоводни и данъчни задължения, за да се занимавате спокойно с работата си. За физически лица, самонаети и фирми в областта Еврос.',
+    cta_call:'Обадете се: 25510 28777', cta_book:'Запазете час',
+    services_h:'Услуги', services_lead:'Всичко необходимо, за да сте в ред с данъчните си задължения.',
+    g1_h:'Физически лица', g1_1:'Данъчни декларации (E1, E2, E9)', g1_2:'Разсрочване на задължения', g1_3:'Консултация за данъчни задължения',
+    g2_h:'Самонаети и еднолични търговци', g2_1:'Започване, промяна и прекратяване на дейност', g2_2:'Счетоводство (категория B)', g2_3:'Декларации по ДДС и срокове',
+    g3_h:'Фирми', g3_1:'Счетоводство (категория C) и финансови отчети', g3_2:'Работни заплати (осигурителни декларации и ERGANI)', g3_3:'Учредяване на дружества и промени', g3_4:'Данъчни консултации',
+    vals_h:'Защо да ни се доверите', vals_lead:'Четири принципа, които следваме във всяко сътрудничество.',
+    v1_h:'Точност в сроковете', v1_p:'Спазваме сроковете, за да избегнете глоби.',
+    v2_h:'Яснота', v2_p:'Обясняваме просто всяко задължение.',
+    v3_h:'Поверителност', v3_p:'Вашите данни остават поверителни.',
+    v4_h:'Лично обслужване', v4_p:'Говорите директно с вашия счетоводител.',
+    how_h:'Как работим', how_lead:'Прост процес, без изненади.',
+    s1_h:'Свържете се с нас', s1_p:'Обадете се или изпратете съобщение и ще уговорим среща.',
+    s2_h:'Предайте документите си', s2_p:'Казваме ви точно какви документи са нужни.',
+    s3_h:'Останалото е наша грижа', s3_p:'Подаваме необходимото и ви информираме за следващите стъпки.',
+    faq_h:'Често задавани въпроси', faq_lead:'Кратки отговори на най-честите въпроси.',
+    q1:'Какво да донеса на първата среща?', a1:'Данъчния си номер (AFM) и документите по въпроса ви, например предишни декларации или фактури. Ако не сте сигурни, попитайте ни предварително.',
+    q2:'Как да запазя час?', a2:'По телефон, по имейл или през формата за контакт по-долу.',
+    q3:'Как се следят сроковете?', a3:'Следим сроковете на задълженията ви и ви уведомяваме навреме.',
+    contact_h:'Контакти', contact_lead:'Обадете се или ни пишете, за да уговорим среща.',
+    f_name:'Име и фамилия', f_phone:'Телефон', f_service:'Услуга', f_msg:'Съобщение', f_send:'Изпрати съобщение',
+    f_note:'Изпращането отваря имейл приложението ви с готово съобщение.',
+    opt0:'Изберете услуга', opt1:'Физическо лице', opt2:'Самонает / ЕТ', opt3:'Фирма', opt4:'Друго',
+    l_addr:'Адрес', l_tel:'Телефон на кантората', l_mob:'Мобилен',
+    map_h:'Намерете ни на картата', map_btn:'Отвори в Google Maps',
+    foot_a:'Счетоводна кантора', foot_b:'Александруполис, Еврос',
+    subj:'Заявка за среща', m_name:'Име', m_phone:'Телефон', m_service:'Услуга'
+  };
+
+  D.ro = {
+    title:'Ziolga Pelagia | Birou de contabilitate și fiscalitate în Alexandroupoli',
+    meta:'Birou de contabilitate și fiscalitate în Alexandroupoli, Grecia. Declarații fiscale, evidență contabilă, TVA, salarizare, începerea și încetarea activității. Dionysiou Solomou 10. Tel. +30 25510 28777.',
+    addr_short:'Dionysiou Solomou 10, Alexandroupoli', addr_short2:'Dionysiou Solomou 10, Alexandroupoli', addr_full:'Dionysiou Solomou 10, 68100 Alexandroupoli, Grecia',
+    nav_services:'Servicii', nav_how:'Cum lucrăm', nav_faq:'Întrebări', nav_contact:'Contact',
+    tag:'Birou de contabilitate și fiscalitate · Alexandroupoli',
+    h1:'Suport contabil de încredere, explicat clar.',
+    lead:'Ne ocupăm de obligațiile dumneavoastră contabile și fiscale, ca dumneavoastră să vă puteți concentra pe activitate. Pentru persoane fizice, profesioniști și firme din Evros.',
+    cta_call:'Sunați: 25510 28777', cta_book:'Programați-vă',
+    services_h:'Servicii', services_lead:'Tot ce are nevoie o persoană sau o firmă pentru a fi în regulă cu obligațiile fiscale.',
+    g1_h:'Persoane fizice', g1_1:'Declarații fiscale (E1, E2, E9)', g1_2:'Eșalonări ale datoriilor', g1_3:'Informare despre obligațiile fiscale',
+    g2_h:'Profesioniști și persoane fizice autorizate', g2_1:'Începerea, modificarea și încetarea activității', g2_2:'Evidență contabilă (categoria B)', g2_3:'Declarații de TVA și termene',
+    g3_h:'Societăți', g3_1:'Evidență contabilă (categoria C) și situații financiare', g3_2:'Salarizare (declarații de asigurări sociale și ERGANI)', g3_3:'Înființarea societăților și modificări', g3_4:'Consultanță fiscală',
+    vals_h:'De ce să ne acordați încredere', vals_lead:'Patru principii pe care le urmăm în orice colaborare.',
+    v1_h:'Punctualitate', v1_p:'Respectăm termenele, ca să evitați penalizările.',
+    v2_h:'Claritate', v2_p:'Vă explicăm simplu fiecare obligație.',
+    v3_h:'Confidențialitate', v3_p:'Datele dumneavoastră rămân confidențiale.',
+    v4_h:'Servicii personalizate', v4_p:'Discutați direct cu contabilul dumneavoastră.',
+    how_h:'Cum lucrăm', how_lead:'Un proces simplu, fără surprize.',
+    s1_h:'Luați legătura cu noi', s1_p:'Sunați sau trimiteți un mesaj și stabilim o programare.',
+    s2_h:'Transmiteți documentele', s2_p:'Vă spunem exact ce documente sunt necesare.',
+    s3_h:'Ne ocupăm de restul', s3_p:'Depunem ce este necesar și vă ținem la curent cu pașii următori.',
+    faq_h:'Întrebări frecvente', faq_lead:'Răspunsuri scurte la cele mai des întâlnite întrebări.',
+    q1:'Ce trebuie să aduc la prima programare?', a1:'Codul fiscal (AFM) și documentele legate de situația dumneavoastră, de exemplu declarații anterioare sau facturi. Dacă nu sunteți sigur, întrebați-ne în prealabil.',
+    q2:'Cum fac o programare?', a2:'Telefonic, prin e-mail sau prin formularul de contact de mai jos.',
+    q3:'Cum se gestionează termenele?', a3:'Urmărim termenele obligațiilor dumneavoastră și vă anunțăm la timp.',
+    contact_h:'Contact', contact_lead:'Sunați-ne sau trimiteți un mesaj pentru o programare.',
+    f_name:'Nume și prenume', f_phone:'Telefon', f_service:'Serviciu', f_msg:'Mesaj', f_send:'Trimite mesajul',
+    f_note:'Trimiterea deschide aplicația de e-mail cu mesajul pregătit.',
+    opt0:'Alegeți serviciul', opt1:'Persoană fizică', opt2:'Profesionist / PFA', opt3:'Societate', opt4:'Altele',
+    l_addr:'Adresă', l_tel:'Telefon birou', l_mob:'Mobil',
+    map_h:'Găsiți-ne pe hartă', map_btn:'Deschide în Google Maps',
+    foot_a:'Birou de contabilitate', foot_b:'Alexandroupoli, Evros',
+    subj:'Cerere de programare', m_name:'Nume', m_phone:'Telefon', m_service:'Serviciu'
+  };
+
+  var HTMLLANG = {el:'el', en:'en', tr:'tr', bg:'bg', ro:'ro'};
+  var cur = 'el';
+
+  function apply(l){
+    if(!D[l]) l = 'el';
+    cur = l;
+    nodes.forEach(function(n){
+      var k = n.getAttribute('data-i18n');
+      if(D[l][k] !== undefined) n.textContent = D[l][k];
+    });
+    document.getElementById('metaDesc').setAttribute('content', D[l].meta);
+    document.documentElement.lang = HTMLLANG[l];
+    document.title = D[l].title;
+    document.querySelectorAll('#lang button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-l') === l ? 'true' : 'false');
+    });
+    try{ localStorage.setItem('lang', l); }catch(e){}
+  }
+
+  document.querySelectorAll('#lang button').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-l')); });
+  });
+
+  // initial language: saved choice, else browser language, else Greek
+  var start = 'el';
+  try{ start = localStorage.getItem('lang') || ''; }catch(e){ start = ''; }
+  if(!start){
+    var nl = (navigator.language || 'el').slice(0,2).toLowerCase();
+    start = D[nl] ? nl : 'el';
+  }
+  apply(start);
+
+  // contact form -> opens the email app
+  document.getElementById('cform').addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = D[cur];
+    var sel = document.getElementById('fs');
+    var service = sel.value ? sel.options[sel.selectedIndex].text : '-';
+    var body = d.m_name + ': ' + document.getElementById('fn').value + '\n' +
+               d.m_phone + ': ' + document.getElementById('fp').value + '\n' +
+               d.m_service + ': ' + service + '\n\n' +
+               document.getElementById('fm').value;
+    window.location.href = 'mailto:pziolga@yahoo.gr?subject=' + encodeURIComponent(d.subj) + '&body=' + encodeURIComponent(body);
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
