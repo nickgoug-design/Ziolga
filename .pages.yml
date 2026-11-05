@@ -1,0 +1,29 @@
+media:
+  input: media/apofaseis
+  output: /media/apofaseis
+  extensions: [pdf]
+
+content:
+  - name: apofaseis
+    label: Αποφάσεις
+    type: file
+    path: decisions.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Τίτλος απόφασης
+        type: string
+        required: true
+      - name: date
+        label: Ημερομηνία
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: file
+        label: Αρχείο PDF
+        type: file
+        required: true
+        options:
+          extensions: [pdf]
