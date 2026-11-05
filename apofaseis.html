@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Αποφάσεις | Ζιώλγα Πελαγία - Λογιστικό & Φοροτεχνικό Γραφείο</title>
+<meta name="description" content="Αρχείο αποφάσεων και ενημερώσεων του λογιστικού και φοροτεχνικού γραφείου Ζιώλγα Πελαγία, Αλεξανδρούπολη.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap&subset=greek,cyrillic,latin-ext" rel="stylesheet">
+<style>
+:root{
+--navy:#16324f; --gold:#c9993f; --bg:#0e2238; --card:rgba(255,255,255,.06);
+--text:#e6ebf1; --muted:#aab6c3; --line:rgba(255,255,255,.13);
+color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:linear-gradient(180deg,#0e2238,#0a1828);min-height:100vh;line-height:1.65;display:flex;flex-direction:column}
+h1,h2,h3{font-family:'Noto Serif',Georgia,serif;color:#fff;line-height:1.25}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px;width:100%}
+
+header{position:sticky;top:0;z-index:10;background:rgba(14,34,56,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px}
+.brand{font-family:'Noto Serif',serif;font-weight:700;color:#fff;text-decoration:none;font-size:1.05rem;white-space:nowrap}
+.brand span{color:var(--gold)}
+.back{font-size:.92rem;font-weight:500;color:var(--muted);text-decoration:none}
+.back:hover{color:#fff}
+
+main{flex:1;padding:48px 0 64px}
+h1{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:10px}
+.lead{color:var(--muted);margin-bottom:28px;max-width:620px}
+
+.search{display:block;width:100%;font:inherit;font-size:1rem;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.07);color:#fff;margin-bottom:26px}
+.search:focus{outline:2px solid var(--gold);outline-offset:1px}
+.search::placeholder{color:var(--muted)}
+
+.year{font-size:1.15rem;color:var(--gold);margin:30px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.list{list-style:none;display:grid;gap:10px}
+.item{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.item .meta{display:grid;gap:2px;min-width:0}
+.item time{font-size:.8rem;color:var(--muted);letter-spacing:.04em}
+.item .t{font-weight:600;color:#fff;overflow-wrap:anywhere}
+.open{flex:none;display:inline-block;padding:9px 16px;border-radius:8px;background:var(--gold);color:#fff;font-weight:600;font-size:.9rem;text-decoration:none}
+.open:hover{background:#a37a31}
+@media(max-width:560px){.item{flex-direction:column;align-items:flex-start}.open{width:100%;text-align:center}}
+
+.empty{color:var(--muted);padding:24px 0}
+
+footer{background:rgba(6,16,28,.7);color:#aab6c3;padding:24px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap nav">
+<a class="brand" href="index.html">Ζιώλγα <span>Πελαγία</span></a>
+<a class="back" href="index.html">← Αρχική σελίδα</a>
+</div>
+</header>
+
+<main>
+<div class="wrap">
+<h1>Αποφάσεις</h1>
+<p class="lead">Εδώ δημοσιεύονται οι αποφάσεις και οι ενημερώσεις του γραφείου. Οι νεότερες εμφανίζονται πρώτες.</p>
+<input class="search" id="q" type="search" placeholder="Αναζήτηση στον τίτλο…" aria-label="Αναζήτηση αποφάσεων" autocomplete="off">
+<div id="out" aria-live="polite"><p class="empty">Φόρτωση…</p></div>
+<noscript><p class="empty">Η σελίδα χρειάζεται JavaScript για να εμφανίσει τη λίστα.</p></noscript>
+</div>
+</main>
+
+<footer>
+<div class="wrap">
+<span>© <span id="yr">2026</span> Ζιώλγα Πελαγία · Λογιστικό Γραφείο</span>
+<span>Αλεξανδρούπολη, Έβρου</span>
+</div>
+</footer>
+
+<script>
+(function(){
+var out = document.getElementById('out');
+var q = document.getElementById('q');
+var items = [];
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+function fmt(d){
+  var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || '');
+  return m ? m[3] + '/' + m[2] + '/' + m[1] : (d || '');
+}
+function norm(s){
+  return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+function href(p){
+  p = String(p || '').replace(/^\//, '');
+  try { return encodeURI(decodeURI(p)); } catch(e) { return encodeURI(p); }
+}
+
+function render(){
+  var term = norm(q.value.trim());
+  var shown = items.filter(function(it){ return !term || norm(it.title).indexOf(term) !== -1; });
+  out.textContent = '';
+  if(!items.length){
+    var e0 = document.createElement('p'); e0.className = 'empty';
+    e0.textContent = 'Δεν έχουν δημοσιευτεί ακόμα αποφάσεις.';
+    out.appendChild(e0); return;
+  }
+  if(!shown.length){
+    var e1 = document.createElement('p'); e1.className = 'empty';
+    e1.textContent = 'Δεν βρέθηκαν αποτελέσματα.';
+    out.appendChild(e1); return;
+  }
+  var year = null, ul = null;
+  shown.forEach(function(it){
+    var y = (it.date || '').slice(0, 4) || '—';
+    if(y !== year){
+      year = y;
+      var h = document.createElement('h2'); h.className = 'year'; h.textContent = y;
+      out.appendChild(h);
+      ul = document.createElement('ul'); ul.className = 'list';
+      out.appendChild(ul);
+    }
+    var li = document.createElement('li'); li.className = 'item';
+    var meta = document.createElement('div'); meta.className = 'meta';
+    var tm = document.createElement('time'); tm.textContent = fmt(it.date);
+    if(it.date) tm.setAttribute('datetime', it.date);
+    var t = document.createElement('span'); t.className = 't'; t.textContent = it.title || '';
+    meta.appendChild(tm); meta.appendChild(t);
+    li.appendChild(meta);
+    if(it.file){
+      var a = document.createElement('a'); a.className = 'open';
+      a.href = href(it.file); a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = 'Άνοιγμα PDF';
+      li.appendChild(a);
+    }
+    ul.appendChild(li);
+  });
+}
+
+fetch('decisions.json', {cache: 'no-cache'})
+  .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(function(data){
+    items = (Array.isArray(data) ? data : []).filter(function(x){ return x && (x.title || x.file); });
+    items.sort(function(a, b){ return String(b.date || '').localeCompare(String(a.date || '')); });
+    render();
+  })
+  .catch(function(){
+    out.textContent = '';
+    var e = document.createElement('p'); e.className = 'empty';
+    e.textContent = 'Δεν ήταν δυνατή η φόρτωση της λίστας. Δοκιμάστε ξανά σε λίγο.';
+    out.appendChild(e);
+  });
+
+q.addEventListener('input', render);
+})();
+</script>
+</body>
+</html>
