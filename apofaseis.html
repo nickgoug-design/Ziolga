@@ -139,8 +139,9 @@ function render(){
 }
 
 fetch('decisions.json', {cache: 'no-cache'})
-  .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-  .then(function(data){
+  .then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); })
+  .then(function(txt){
+    var data = txt.trim() ? JSON.parse(txt) : [];
     items = (Array.isArray(data) ? data : []).filter(function(x){ return x && (x.title || x.file); });
     items.sort(function(a, b){ return String(b.date || '').localeCompare(String(a.date || '')); });
     render();
